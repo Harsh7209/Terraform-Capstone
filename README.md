@@ -1,62 +1,96 @@
-# Project Overview
-This project aims to provide a comprehensive Terraform configuration for deploying and managing infrastructure as code. It helps automate the provisioning of cloud resources and ensures consistency across different environments.
+# 🚀 Terraform Capstone Project
 
-# Architecture
-The architecture of this project is based on modular Terraform configurations that enable reusability and scalability. The core components are organized into separate modules, each responsible for a specific aspect of the infrastructure.
+## 📖 Project Overview  
+The Terraform Capstone Project automates the deployment of AWS resources including EC2, S3, and DynamoDB. This project demonstrates practical use of Terraform to create a scalable architecture across multiple environments.
 
-# Modules Documentation
-- **VPC Module**: Sets up a Virtual Private Cloud (VPC) with subnets, route tables, and internet gateways.
-- **EC2 Module**: Provisions Amazon EC2 instances with customizable configurations for AMI, instance type, and security groups.
-- **RDS Module**: Deploys an Amazon RDS database instance with configurations for backup, scaling, and security.
+## 🏗️ Architecture  
+The architecture consists of various AWS services integrated to work seamlessly.
+- **EC2 Instances**: Used to run applications.
+- **S3 Buckets**: For storing application data and backup.
+- **DynamoDB**: NoSQL database for storing application state.
 
-# Environment Configuration
-Each environment (e.g., development, staging, production) has its own configuration file. Ensure that you set the necessary variables like region and instance sizes in these files.
-
-# Prerequisites
-- Terraform version 1.0 or higher
-- AWS account with necessary permissions
-- AWS CLI configured with proper access credentials
-
-# Getting Started Guide
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Harsh7209/terraform-capstone.git
-   cd terraform-capstone
-   ```
-2. Initialize Terraform:
-   ```bash
-   terraform init
-   ```
-3. Plan the deployment:
-   ```bash
-   terraform plan
-   ```
-4. Apply the configuration:
-   ```bash
-   terraform apply
-   ```
-
-# Usage Examples
-## Deploying a VPC
-```hcl
-module "vpc" {
-  source = "./modules/vpc"
-  name   = "my-vpc"
-  cidr   = "10.0.0.0/16"
-}
+## 📂 Project Structure  
 ```
+terraform-capstone/
+├── main.tf              # Main Terraform configuration
+├── variables.tf         # Input variables
+├── outputs.tf           # Outputs after deployment
+├── modules/             # Contains reusable modules
+│   ├── ec2/             # EC2 module
+│   ├── s3/              # S3 module
+│   └── dynamodb/        # DynamoDB module
+└── env/                # Environment specific configurations
+    ├── dev/
+    ├── stg/
+    └── prod/
+``` 
 
-## Provisioning EC2 Instances
-```hcl
-module "ec2" {
-  source        = "./modules/ec2"
-  instance_type = "t2.micro"
-  ami           = "ami-0c55b159cbfafe01e"
-}
-```
+## 🔧 Prerequisites  
+- AWS Account  
+- Terraform installed on your local machine  
+- AWS CLI configured  
 
-# Best Practices
-- Always use version control for your Terraform code.
-- Implement state file management to handle concurrent modifications.
-- Review and validate your configurations before applying changes.
-- Document any changes made to the infrastructure for future reference.
+## 🏁 Getting Started Guide  
+### Step-by-Step Instructions  
+1. Clone the repository:  
+   ```bash  
+   git clone https://github.com/Harsh7209/terraform-capstone.git  
+   ```  
+2. Navigate to the project directory:  
+   ```bash  
+   cd terraform-capstone  
+   ```  
+3. Initialize Terraform:  
+   ```bash  
+   terraform init  
+   ```  
+4. Plan your deployment:  
+   ```bash  
+   terraform plan  
+   ```  
+5. Apply the changes:  
+   ```bash  
+   terraform apply  
+   ```  
+
+## 🌍 Environment Configuration  
+| Environment | EC2 Instance Type | S3 Bucket Name      | DynamoDB Table Name |  
+|-------------|-------------------|----------------------|----------------------|  
+| Dev         | t2.micro          | dev-bucket           | dev-table            |  
+| Staging     | t2.medium         | stg-bucket           | stg-table            |  
+| Production   | t2.large          | prod-bucket          | prod-table           |  
+
+## 💻 Usage Examples  
+- Deploy in Dev:  
+   ```bash  
+   terraform apply -var "environment=dev"  
+   ```  
+- Deploy in Prod:  
+   ```bash  
+   terraform apply -var "environment=prod"  
+   ```  
+
+## 🌟 Key Features  
+- Infrastructure as Code  
+- Modular Structure for Reusability  
+- Multi-Environment Support  
+
+## 🥇 Best Practices  
+- Use version control for your Terraform scripts.  
+- Regularly update your modules to include security patches.  
+
+## 🛠️ Troubleshooting Section  
+- **Issue**: Resource not found.  
+  **Solution**: Ensure the configurations are correct and the resources are in the specified account.
+
+## 🚀 Future Enhancements  
+- Integration with CI/CD pipelines  
+- Add more AWS services like RDS and Lambda  
+
+## 👤 Author Information  
+- **Name**: Harsh  
+- **GitHub**: [Harsh7209](https://github.com/Harsh7209)  
+- **Email**: harsh@example.com  
+
+---  
+This README is intended to provide all necessary information for deploying and using the resources configured through the Terraform Capstone project effectively.
