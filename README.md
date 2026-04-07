@@ -60,28 +60,70 @@ terraform-capstone/
 | Staging     | t2.medium         | stg-bucket           | stg-table            |  
 | Production   | t2.large          | prod-bucket          | prod-table           |  
 
-## 💻 Usage Examples  
-- Deploy in Dev:  
-   ```bash  
-   terraform apply -var "environment=dev"  
-   ```  
-- Deploy in Prod:  
-   ```bash  
-   terraform apply -var "environment=prod"  
-   ```  
+🔧 Troubleshooting
+Issue: "Provider AWS not found"
+Solution: Run terraform init to download the AWS provider.
 
-## 🌟 Key Features  
-- Infrastructure as Code  
-- Modular Structure for Reusability  
-- Multi-Environment Support  
+Issue: "Invalid provider version"
+Solution: Update AWS provider version in terraform.tf or run:
+
+bash
+terraform init -upgrade
+Issue: "Workspace does not exist"
+Solution: Create the workspace first:
+
+bash
+terraform workspace new <workspace-name>
+Issue: "Insufficient permissions"
+Solution: Verify AWS credentials:
+
+bash
+aws sts get-caller-identity
+Ensure your IAM user has EC2, S3, and DynamoDB permissions.
+
+Issue: "Resource already exists"
+Solution: Check AWS Console for existing resources or:
+
+bash
+terraform destroy
+terraform apply
+Issue: "Invalid SSH key"
+Solution: Update the public key in modules/ec2/main.tf:
+
+
+
+✨ Key Features
+1. Multi-Environment Support
+Dev, Staging, and Production environments
+Independent state per environment using workspaces
+Automatic scaling based on environment
+2. Modular Design
+Reusable EC2, S3, and DynamoDB modules
+Each module is self-contained with its own variables
+Easy to add new modules
+3. Scalability
+Use count parameter for dynamic resource creation
+Simple variable adjustment for resource scaling
+Supports adding new environments easily
+4. Security
+Security group with SSH, HTTP, and HTTPS access
+Key pair for secure EC2 access
+DynamoDB with PAY_PER_REQUEST billing (no unused capacity)
+5. Naming Convention
+Environment-based resource naming (e.g., dev-terra-server-1)
+Consistent tagging across all resources
+Easy resource identification in AWS Console
+6. Cost Optimization
+t3.micro instances (cost-effective)
+Configurable resource counts per environment
+DynamoDB PAY_PER_REQUEST billing
+
 
 ## 🥇 Best Practices  
 - Use version control for your Terraform scripts.  
 - Regularly update your modules to include security patches.  
 
-## 🛠️ Troubleshooting Section  
-- **Issue**: Resource not found.  
-  **Solution**: Ensure the configurations are correct and the resources are in the specified account.
+
 
 ## 🚀 Future Enhancements  
 - Integration with CI/CD pipelines  
@@ -90,7 +132,7 @@ terraform-capstone/
 ## 👤 Author Information  
 - **Name**: Harsh  
 - **GitHub**: [Harsh7209](https://github.com/Harsh7209)  
-- **Email**: harsh@example.com  
+- **Email**: harshchoubey113@example.com  
 
 ---  
 This README is intended to provide all necessary information for deploying and using the resources configured through the Terraform Capstone project effectively.
