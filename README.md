@@ -87,13 +87,13 @@ aws sts get-caller-identity
 Ensure your IAM user has EC2, S3, and DynamoDB permissions.
 
 # Issue: "Resource already exists"
-Solution: Check AWS Console for existing resources or:
+Solution: Check AWS Console for existing resources 
 
 # Bash
 terraform destroy
 terraform apply
 Issue: "Invalid SSH key"
-Solution: Update the public key in modules/ec2/main.tf:
+Solution: Update the public key in modules/ec2/main.tf
 
 
 
