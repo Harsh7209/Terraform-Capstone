@@ -1,146 +1,108 @@
-# 🚀 Terraform Capstone Project
 
-## 📖 Project Overview  
-The Terraform Capstone Project automates the deployment of AWS resources including EC2, S3, and DynamoDB. This project demonstrates practical use of Terraform to create a scalable architecture across multiple environments.
+## 📌 Project Overview
 
-## 🏗️ Architecture  
-The architecture consists of various AWS services integrated to work seamlessly.
-- **EC2 Instances**: Used to run applications.
-- **S3 Buckets**: For storing application data and backup.
-- **DynamoDB**: NoSQL database for storing application state.
+This project is a **Flask-based web application** that I have **adopted from an open-source repository** and enhanced by implementing **DevSecOps practices** across the development lifecycle.
 
-## 📂 Project Structure  
-```
-terraform-capstone/
-├── main.tf              # Main Terraform configuration
-├── variables.tf         # Input variables
-├── outputs.tf           # Outputs after deployment
-├── modules/             # Contains reusable modules
-│   ├── ec2/             # EC2 module
-│   ├── s3/              # S3 module
-│   └── dynamodb/        # DynamoDB module
-└── env/                # Environment specific configurations
-    ├── dev/
-    ├── stg/
-    └── prod/
-``` 
+The primary goal of this project is to demonstrate how security can be integrated into every phase of the DevOps pipeline — from development to deployment.
 
-## 🔧 Prerequisites  
-- AWS Account  
-- Terraform installed on your local machine  
-- AWS CLI configured  
+---
 
-## 🏁 Getting Started Guide  
-### Step-by-Step Instructions  
-1. Clone the repository:  
-   ```bash  
-   git clone https://github.com/Harsh7209/terraform-capstone.git  
-   ```  
-2. Navigate to the project directory:  
-   ```bash  
-   cd terraform-capstone  
-   ```  
-3. Initialize Terraform:  
-   ```bash  
-   terraform init  
-   ```  
-4. Plan your deployment:  
-   ```bash  
-   terraform plan  
-   ```  
-5. Apply the changes:  
-   ```bash  
-   terraform apply  
-   ```  
+## ⚠️ Disclaimer
 
-## 🌍 Environment Configuration  
-| Environment | EC2 Instance Type | S3 Bucket Name      | DynamoDB Table Name |  
-|-------------|-------------------|----------------------|----------------------|  
-| Dev         | t2.micro          | dev-bucket           | dev-table            |  
-| Staging     | t2.medium         | stg-bucket           | stg-table            |  
-| Production   | t2.large          | prod-bucket          | prod-table           |  
+> 🔹 This project was originally sourced from an open-source repository.  
+> 🔹 I have adopted and extended it by implementing DevSecOps principles, tools, and automation.
 
-## 🔧 Troubleshooting
-# Issue: "Provider AWS not found"
-Solution: Run terraform init to download the AWS provider.
+---
 
-# Issue: "Invalid provider version"
-Solution: Update AWS provider version in terraform.tf or run:
+## 🧠 What is DevSecOps?
 
-# Bash
-terraform init -upgrade 
+DevSecOps is the practice of integrating **security into every stage of the software development lifecycle**, instead of treating it as a separate phase.
 
-Issue: "Workspace does not exist" 
+---
 
-Solution: Create the workspace first:
+## 🛠️ Tech Stack
 
-# Bash
-terraform workspace new <workspace-name> 
+- **Backend:** Flask (Python)
+- **Version Control:** Git & GitHub
+- **CI/CD:** GitHub Actions
+- **Containerization:** Docker
+- **Security Tools:** (Add tools like Trivy, Bandit, etc.)
+- **Infrastructure:** (Optional – Kubernetes / AWS)
 
-Issue: "Insufficient permissions" 
+---
 
-Solution: Verify AWS credentials:  
+## 🔐 DevSecOps Implementation
 
-# Bash
-aws sts get-caller-identity 
+### 1️⃣ Secure Code Practices
+- Improved code quality
+- Removed hardcoded secrets
+- Followed secure coding practices
 
-Ensure your IAM user has EC2, S3, and DynamoDB permissions.
+### 2️⃣ CI/CD Pipeline
+- Automated workflows using GitHub Actions
+- Trigger on every push
+- Integrated security checks
 
-# Issue: "Resource already exists"
-Solution: Check AWS Console for existing resources 
+### 3️⃣ Security Scanning
+- SAST (Static Code Analysis)
+- Dependency Scanning
+- Container Image Scanning
 
-# Bash
-terraform destroy
-terraform apply
-Issue: "Invalid SSH key"
-Solution: Update the public key in modules/ec2/main.tf
+### 4️⃣ Docker Security
+- Optimized Dockerfile
+- Reduced vulnerabilities
+- Followed best practices
 
+---
 
+## ⚙️ CI/CD Workflow
 
-## ✨ Key Features
+Code Commit → GitHub → GitHub Actions → Build → Scan → Docker Build → Deploy
 
-# 1. Multi-Environment Support
-Dev, Staging, and Production environments
-Independent state per environment using workspaces
-Automatic scaling based on environment
+---
 
-# 2. Modular Design
-Reusable EC2, S3, and DynamoDB modules
-Each module is self-contained with its own variables
-Easy to add new modules
+## 📂 Project Structure
 
-# 3. Scalability
-Use count parameter for dynamic resource creation
-Simple variable adjustment for resource scaling
-Supports adding new environments easily
- # 4. Security
-Security group with SSH, HTTP, and HTTPS access
-Key pair for secure EC2 access
-DynamoDB with PAY_PER_REQUEST billing (no unused capacity)
- # 5. Naming Convention
-Environment-based resource naming (e.g., dev-terra-server-1)
-Consistent tagging across all resources
-Easy resource identification in AWS Console
-# 6. Cost Optimization
-t3.micro instances (cost-effective)
-Configurable resource counts per environment
-DynamoDB PAY_PER_REQUEST billing
+.
+├── app.py
+├── requirements.txt
+├── Dockerfile
+├── .github/workflows/
+└── templates/
 
+---
 
-## 🥇 Best Practices  
-- Use version control for your Terraform scripts.  
-- Regularly update your modules to include security patches.  
+## 🚀 Getting Started
 
+### Clone Repo
 
+git clone https://github.com/Harsh7209/flask_app_DevSecOps.git  
+cd flask_app_DevSecOps
 
-## 🚀 Future Enhancements  
-- Integration with CI/CD pipelines  
-- Add more AWS services like RDS and Lambda  
+### Run Locally
 
-## 👤 Author Information  
-- **Name**: Harsh  
-- **GitHub**: [Harsh7209](https://github.com/Harsh7209)  
-- **Email**: harshchoubey113@example.com  
+pip install -r requirements.txt  
+python app.py
 
----  
-This README is intended to provide all necessary information for deploying and using the resources configured through the Terraform Capstone project effectively.
+---
+
+## 🐳 Run with Docker
+
+docker build -t flask-devsecops .  
+docker run -p 5000:5000 flask-devsecops  
+
+---
+
+## 🎯 Key Highlights
+
+✔️ Open-source project adoption  
+✔️ DevSecOps implementation  
+✔️ Security integrated CI/CD  
+✔️ Dockerized application  
+
+---
+
+## 👤 Author
+
+Harsh Choubey  
+https://github.com/Harsh7209
