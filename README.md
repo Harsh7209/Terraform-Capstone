@@ -1,146 +1,29 @@
-# 🚀 Terraform Capstone Project
+HARSH CHOUBEY
+harshchoubey113@gmail.com • linkedin.com/in/harshchoubey113 • github.com/Harsh7209
 
-## 📖 Project Overview  
-The Terraform Capstone Project automates the deployment of AWS resources including EC2, S3, and DynamoDB. This project demonstrates practical use of Terraform to create a scalable architecture across multiple environments.
+Dear Hiring Manager,
 
-## 🏗️ Architecture  
-The architecture consists of various AWS services integrated to work seamlessly.
-- **EC2 Instances**: Used to run applications.
-- **S3 Buckets**: For storing application data and backup.
-- **DynamoDB**: NoSQL database for storing application state.
+I'm excited to apply for the DevOps Internship position. As someone graduating this June with a passion for infrastructure and systems, I'm at the perfect point in my journey to grow alongside a talented team.
 
-## 📂 Project Structure  
-```
-terraform-capstone/
-├── main.tf              # Main Terraform configuration
-├── variables.tf         # Input variables
-├── outputs.tf           # Outputs after deployment
-├── modules/             # Contains reusable modules
-│   ├── ec2/             # EC2 module
-│   ├── s3/              # S3 module
-│   └── dynamodb/        # DynamoDB module
-└── env/                # Environment specific configurations
-    ├── dev/
-    ├── stg/
-    └── prod/
-``` 
+Here's what sets me apart: I haven't waited for a job to start learning DevOps. Over the past year, I've deliberately built production-grade projects to understand how modern infrastructure works. My flagship project is a multi-tier application deployed on AWS EKS—a project that forced me to learn the full DevOps lifecycle from scratch.
 
-## 🔧 Prerequisites  
-- AWS Account  
-- Terraform installed on your local machine  
-- AWS CLI configured  
+Through this project, I built real-world systems that taught me:
+- Infrastructure as Code with Terraform (VPCs, EKS clusters, managed storage, IRSA)
+- CI/CD pipeline development with GitHub Actions (7-stage pipeline with security scanning: GitLeaks, OWASP, Trivy, Kubernetes validation)
+- GitOps workflows using ArgoCD for automated, version-controlled infrastructure
+- Container orchestration with Kubernetes (StatefulSets, ConfigMaps, Secrets, probes, init containers)
+- Observability with Prometheus and Grafana in a production environment
+- Containerization with Docker and package management with Helm
 
-## 🏁 Getting Started Guide  
-### Step-by-Step Instructions  
-1. Clone the repository:  
-   ```bash  
-   git clone https://github.com/Harsh7209/terraform-capstone.git  
-   ```  
-2. Navigate to the project directory:  
-   ```bash  
-   cd terraform-capstone  
-   ```  
-3. Initialize Terraform:  
-   ```bash  
-   terraform init  
-   ```  
-4. Plan your deployment:  
-   ```bash  
-   terraform plan  
-   ```  
-5. Apply the changes:  
-   ```bash  
-   terraform apply  
-   ```  
+But what I value most isn't just the tools I've learned—it's the problem-solving mindset. I've intentionally broken systems to understand why they fail. I've debugged CrashLoopBackOffing pods, resolved ArgoCD sync issues, and figured out networking problems at 2 AM because I was genuinely curious about the "why."
 
-## 🌍 Environment Configuration  
-| Environment | EC2 Instance Type | S3 Bucket Name      | DynamoDB Table Name |  
-|-------------|-------------------|----------------------|----------------------|  
-| Dev         | t2.micro          | dev-bucket           | dev-table            |  
-| Staging     | t2.medium         | stg-bucket           | stg-table            |  
-| Production   | t2.large          | prod-bucket          | prod-table           |  
+As an intern, I'm looking for an opportunity to bring this hands-on learning approach to your team. I want to work alongside experienced engineers who can teach me the nuances of production DevOps—the decisions that matter, the tradeoffs that shape real systems, and the practices that separate good infrastructure from great infrastructure.
 
-## 🔧 Troubleshooting
-# Issue: "Provider AWS not found"
-Solution: Run terraform init to download the AWS provider.
+What I bring as an intern isn't years of experience—it's something potentially more valuable: genuine curiosity, a learning mindset that won't quit, and a proven ability to take on challenges outside my comfort zone and push through until I understand them completely. I document what I learn. I ask thoughtful questions. I'm coachable and eager to contribute meaningfully from day one.
 
-# Issue: "Invalid provider version"
-Solution: Update AWS provider version in terraform.tf or run:
+I'm not just looking for a resume line—I'm looking for a place to grow, to learn from the best, and to start building a foundation for a long career in DevOps. If that resonates with your team, I'd love to discuss how I can add value during my internship.
 
-# Bash
-terraform init -upgrade 
+Thank you for considering my application. I look forward to talking with you.
 
-Issue: "Workspace does not exist" 
-
-Solution: Create the workspace first:
-
-# Bash
-terraform workspace new <workspace-name> 
-
-Issue: "Insufficient permissions" 
-
-Solution: Verify AWS credentials:  
-
-# Bash
-aws sts get-caller-identity 
-
-Ensure your IAM user has EC2, S3, and DynamoDB permissions.
-
-# Issue: "Resource already exists"
-Solution: Check AWS Console for existing resources 
-
-# Bash
-terraform destroy
-terraform apply
-Issue: "Invalid SSH key"
-Solution: Update the public key in modules/ec2/main.tf
-
-
-
-## ✨ Key Features
-
-# 1. Multi-Environment Support
-Dev, Staging, and Production environments
-Independent state per environment using workspaces
-Automatic scaling based on environment
-
-# 2. Modular Design
-Reusable EC2, S3, and DynamoDB modules
-Each module is self-contained with its own variables
-Easy to add new modules
-
-# 3. Scalability
-Use count parameter for dynamic resource creation
-Simple variable adjustment for resource scaling
-Supports adding new environments easily
- # 4. Security
-Security group with SSH, HTTP, and HTTPS access
-Key pair for secure EC2 access
-DynamoDB with PAY_PER_REQUEST billing (no unused capacity)
- # 5. Naming Convention
-Environment-based resource naming (e.g., dev-terra-server-1)
-Consistent tagging across all resources
-Easy resource identification in AWS Console
-# 6. Cost Optimization
-t3.micro instances (cost-effective)
-Configurable resource counts per environment
-DynamoDB PAY_PER_REQUEST billing
-
-
-## 🥇 Best Practices  
-- Use version control for your Terraform scripts.  
-- Regularly update your modules to include security patches.  
-
-
-
-## 🚀 Future Enhancements  
-- Integration with CI/CD pipelines  
-- Add more AWS services like RDS and Lambda  
-
-## 👤 Author Information  
-- **Name**: Harsh  
-- **GitHub**: [Harsh7209](https://github.com/Harsh7209)  
-- **Email**: harshchoubey113@example.com  
-
----  
-This README is intended to provide all necessary information for deploying and using the resources configured through the Terraform Capstone project effectively.
+Best regards,
+Harsh Choubey
